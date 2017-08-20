@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>VANZER</title>
+    <link rel="shortcut icon" href="favicon.png" >
+    <meta name=viewport content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="page_product">
+        <div class="container clearfix">
+          <div class="col7">
+             <a href="portfolio.html" class="back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>back to portfolio</a>
+              <div class="rotate"></div>
+              <div>
+                <img src="img/product1.jpg" class="image" alt="">
+                <img src="img/product2.jpg" class="image" alt="">
+                <img src="img/product3.jpg" class="image" alt="">
+             </div>
+          </div>
+          <div class="col5">
+              <h3>Lorem ipsum dolor</h3>
+              <div class="line"></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, et fugiat cum eos ratione atque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure iusto ducimus, at asperiores corporis deserunt quos quaerat ullam, porro suscipit.</p>
+              <div class="acordion">
+                   <h2>Lorem ipsum</h2>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore nobis harum ea ipsa laborum quo, vel explicabo distinctio reprehenderit saepe.</p>
+                    <h2>Amet beatae ad</h2>
+                    <p class="text">Amet similique illum, quod obcaecati ab blanditiis aperiam accusamus nihil deleniti dignissimos quibusdam nemo minus maiores aliquam animi? Veniam, perspiciatis.</p>
+                    <h2>Soluta a nam</h2>
+                    <p class="text">Laborum quos animi odio, ipsum, expedita voluptatum nam illo voluptate, molestiae porro provident cum cumque neque ipsam labore. Quis, aliquid.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/rotate.js"></script>
+    <script src="js/window.js"></script>
+    <script>
+        $(function(){
+            $('.rotate').rotate({
+                'count' : 27,
+            });
+
+            $('h2').click(function(){
+                $(this).next('p').slideToggle(500).siblings('p:visible').slideUp(500);
+            });
+            
+            $('.page_product h3').hover(
+                function(){
+                    $('.page_product .line').animate({width: "300px"}, 400)
+                },
+                function(){
+                    $('.page_product .line').animate({width: "400px"}, 400)
+                });
+            
+            $('.back').hover(
+                function(){
+                    $('.fa').animate({right: '10px'}, 400);
+                },
+                function(){
+                    $('.fa').animate({right: '3px'}, 400);
+                });
+        });
+    </script>
+</body>
+</html>
