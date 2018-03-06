@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+   <style>
+    #video-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+    background: url(bg/daisy-stock-poster.jpg) no-repeat black;
+    background-size: cover;
+}
+ 
+#video-bg > video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto;
+    height: auto; 
+}
+       
+        @media (min-aspect-ratio: 16/9) {
+     #video-bg > video { height: 300%; top: -100%; }
+ }
+ @media (max-aspect-ratio: 16/9) {
+     #video-bg > video { width: 300%; left: -100%; }
+ }
+ 
+ @supports (object-fit: cover) {
+     #video-bg > video {
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+     }
+ }
+       
+       video::-webkit-media-controls-fullscreen-button {
+           display:none;
+       }
+       
+       video::-webkit-media-controls-enclosure{
+           opacity: 0.5;
+           display: none;
+       }
+       
+       .add::-webkit-media-controls-enclosure{
+           display: block;
+       }
+    </style>
+</head>
+<body>
+ 
+
+  <div id="video-bg">
+    <video width="100%" height="auto" preload="auto"
+    loop="loop" controls="controls" poster="bg/daisy-stock-poster.jpg">
+        <source src="ролик.mp4" type="video/mp4"></source>
+        <source src="video.webm" type="video/webm"></source>
+    </video>
+</div>
+  <button>PLAY</button>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+  <script>
+      $('button').click(function(){
+          $('video').get(0).play();
+          $('video').addClass('add');
+      })
+
+</script>
+  
+</body>
+</html>	
